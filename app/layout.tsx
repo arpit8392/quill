@@ -1,8 +1,9 @@
+import Navbar from '@/components/Navbar'
+import Providers from '@/components/Providers'
 import { cn } from '@/lib/utils'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Navbar from '@/components/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,14 +19,16 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang='en'>
-			<body
-				className={cn(
-					'min-h-screen font-sans antialiased grainy',
-					inter.className
-				)}>
+			<Providers>
+				<body
+					className={cn(
+						'min-h-screen font-sans antialiased grainy',
+						inter.className
+					)}>
 					<Navbar />
-				{children}
-			</body>
+					{children}
+				</body>
+			</Providers>
 		</html>
 	)
 }
